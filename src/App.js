@@ -1,26 +1,39 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+class Entrada extends React.Component {
+  //creacion del constructor
+  constructor(props) {
+    super(props)
+    this.entrada = React.createRef()
+  }
+
+
+
+  //creacion de los elemento:
+  focus = () => {
+    console.log(this.entrada)
+  }
+  blur = () => { }
+  render() {
+    return (
+      <div>
+        <input type="text" ref={this.entrada} />
+        <button onClick={this.focus}>Focus</button>
+        <button onClick={this.blur}>Blur</button>
+      </div>
+    )
+  }
+}
+
+class App extends React.Component {
+  render() {
+    return (
+      <div>
+        <Entrada></Entrada>
+      </div>
+    )
+  }
 }
 
 export default App;
