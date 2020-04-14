@@ -2,19 +2,21 @@ import React from 'react';
 
 
 class Entrada extends React.Component {
-  //creacion del constructor
-  constructor(props) {
-    super(props)
-    this.entrada = React.createRef()
+  //cuando es sin constructor
+  entrada = React.createRef()
+
+  componentDidMount() {
+    this.focus()
   }
-
-
 
   //creacion de los elemento:
   focus = () => {
-    console.log(this.entrada)
+    this.entrada.current.focus()
   }
-  blur = () => { }
+  blur = () => {
+    this.entrada.current.blur()
+  }
+
   render() {
     return (
       <div>
